@@ -1,0 +1,45 @@
+.page {padding: 16px; background: #f0f0f0; min-height: 100vh; box-sizing: border-box;}
+.main-btn {background: #07c160; color: #fff; border: none; border-radius: 16px; padding: 14px; width: 100%; font-size: 15px; font-weight: 600; margin-bottom: 16px; display: block; box-sizing: border-box;}
+.empty {text-align: center; padding: 48px 0;}
+.ee {display: block; font-size: 48px; margin-bottom: 12px;}
+.et {display: block; font-size: 15px; font-weight: 600; color: #333; margin-bottom: 6px;}
+.ed {display: block; font-size: 13px; color: #aaa; line-height: 1.6;}
+.list {}
+.st {display: block; font-size: 14px; font-weight: 600; color: #333; margin: 16px 0 10px;}
+.er {display: flex; gap: 8px; margin-bottom: 8px;}
+.eb {flex: 1; background: #fff; border-radius: 12px; padding: 10px 4px; text-align: center; border: 2px solid transparent; box-sizing: border-box;}
+.eb.sel {border-color: #3b82f6; background: #eff6ff;}
+.ei {display: block; font-size: 22px; margin-bottom: 2px;}
+.et2 {display: block; font-size: 11px; color: #666;}
+.evr {display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;}
+.evb {background: #fff; border-radius: 9999px; padding: 4px 12px; font-size: 12px; color: #666; border: 1px solid #e5e7eb; box-sizing: border-box;}
+.evb.sel {background: #dbeafe; color: #1d4ed8; border-color: #bfdbfe;}
+.ta {background: #fff; border-radius: 16px; padding: 14px; font-size: 14px; width: 100%; min-height: 120px; margin-bottom: 4px; display: block; box-sizing: border-box;}
+.tc {font-size: 12px; color: #ccc; text-align: right; margin-bottom: 12px;}
+.priv {display: flex; gap: 10px; margin-bottom: 16px;}
+.pb {flex: 1; background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; padding: 10px; text-align: center; font-size: 13px; color: #666; box-sizing: border-box;}
+.pb.sel {border-color: #07c160; background: #f0fdf4; color: #15803d;}
+.btn {background: #07c160; color: #fff; border: none; border-radius: 9999px; padding: 14px; width: 100%; font-size: 15px; font-weight: 600; margin-bottom: 10px; display: block; box-sizing: border-box;}
+.btn:disabled {opacity: .4;}
+.btn-back {background: #fff; color: #666; border: 1px solid #e5e7eb; border-radius: 9999px; padding: 12px; width: 100%; font-size: 14px; display: block; box-sizing: border-box;}
+.dc {background: #fff; border-radius: 16px; padding: 14px 16px; margin-bottom: 10px;}
+.dct {display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;}
+.dce {font-size: 14px;}
+.dcd {font-size: 12px; color: #aaa;}
+.dcc {display: block; font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 4px;}
+.dcm {font-size: 12px; color: #ccc;}
+.chat-page {display: flex; flex-direction: column; height: 100vh; box-sizing: border-box; background: #f0f0f0;}
+.ctx {background: #eff6ff; border-radius: 12px; padding: 12px 14px; margin: 12px 16px 0; border-left: 3px solid #3b82f6;}
+.ctxl {display: block; font-size: 11px; color: #60a5fa; margin-bottom: 4px;}
+.ctxt {display: block; font-size: 13px; color: #1e40af; line-height: 1.5; font-style: italic; margin-bottom: 4px;}
+.ctxd {display: block; font-size: 11px; color: #93c5fd;}
+.msgs {flex: 1; overflow-y: auto; padding: 12px 16px;}
+.mr {display: flex; margin-bottom: 10px;}
+.mr.ur {flex-direction: row-reverse;}
+.bub {max-width: 75%; border-radius: 16px; padding: 10px 14px; font-size: 14px; line-height: 1.5; box-sizing: border-box;}
+.bub-me {background: #07c160; color: #fff; border-bottom-right-radius: 4px;}
+.bub-ai {background: #fff; color: #333; border-bottom-left-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.06);}
+.btext {}
+.inp-row {display: flex; gap: 10px; padding: 12px 16px; border-top: 1px solid #eee; background: #fff; flex-shrink: 0; box-sizing: border-box;}
+.inp {flex: 1; background: #f5f5f5; border-radius: 9999px; padding: 10px 16px; font-size: 14px;}
+.snd {background: #07c160; color: #fff; border: none; border-radius: 9999px; padding: 10px 18px; font-size: 16px; line-height: 1; box-sizing: border-box;}

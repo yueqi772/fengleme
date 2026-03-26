@@ -1,0 +1,25 @@
+.page {padding: 16px; background: #f0f0f0; min-height: 100vh; box-sizing: border-box;}
+.report-hero {border-radius: 24px; padding: 32px 24px; text-align: center; margin-bottom: 16px;}
+.re-emoji {display: block; font-size: 40px; margin-bottom: 8px;}
+.re-score {display: block; font-size: 56px; font-weight: 800; line-height: 1;}
+.re-unit {display: block; font-size: 18px; color: rgba(0,0,0,.4); margin-bottom: 8px;}
+.re-desc {display: block; font-size: 14px;}
+.card {background: #fff; border-radius: 16px; padding: 20px; margin-bottom: 12px;}
+.card-title {display: block; font-size: 15px; font-weight: 700; color: #333; margin-bottom: 14px;}
+.none-tip {display: block; font-size: 14px; color: #aaa; text-align: center; padding: 16px 0;}
+.pua-item {display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f5f5f5;}
+.pua-item:last-child {border-bottom: none;}
+.pua-dot {font-size: 8px; color: #ef4444; flex-shrink: 0;}
+.pua-type {font-size: 14px; color: #333;}
+.card-quote {display: block; font-size: 15px; color: #166534; font-style: italic; line-height: 1.7; margin-bottom: 12px; padding: 12px; background: #f0fdf4; border-radius: 10px;}
+.card-body {display: block; font-size: 13px; color: #555; line-height: 1.7;}
+.next-item {display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f5f5f5;}
+.next-item:last-child {border-bottom: none;}
+.next-icon {font-size: 22px; flex-shrink: 0;}
+.next-info {flex: 1;}
+.next-t {display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 2px;}
+.next-d {display: block; font-size: 12px; color: #888;}
+.home-btn {background: #07c160; color: #fff; border: none; border-radius: 9999px; padding: 14px; font-size: 15px; font-weight: 600; width: 100%; display: block; box-sizing: border-box; margin-top: 8px;}
+.empty {text-align: center; padding: 80px 0;}
+.et {display: block; font-size: 16px; font-weight: 600; color: #333; margin-bottom: 8px;}
+.ed {display: block; font-size: 14px; color: #aaa;}

@@ -1,0 +1,21 @@
+.page {padding: 16px; background: #f0f0f0; min-height: 100vh; box-sizing: border-box; padding-bottom: 80px;}
+.post {background: #fff; border-radius: 16px; padding: 20px; margin-bottom: 16px;}
+.p-top {display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;}
+.p-auth {font-size: 14px; font-weight: 600; color: #333;}
+.p-time {font-size: 12px; color: #aaa;}
+.p-content {display: block; font-size: 15px; color: #333; line-height: 1.7; margin-bottom: 14px;}
+.p-tags {display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;}
+.htag {background: #fef2f2; color: #dc2626; padding: 2px 10px; border-radius: 9999px; font-size: 12px;}
+.p-actions {display: flex; align-items: center; gap: 16px; border-top: 1px solid #f5f5f5; padding-top: 12px;}
+.act-btn {background: none; border: 1px solid #e5e7eb; border-radius: 9999px; padding: 4px 14px; font-size: 13px; color: #666;}
+.act-btn.actived {background: #fef2f2; color: #dc2626; border-color: #fecaca;}
+.act-text {font-size: 13px; color: #aaa;}
+.cm-title {display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 12px;}
+.cm-list {margin-bottom: 16px;}
+.cm-item {background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 8px;}
+.cm-auth {display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 2px;}
+.cm-time {display: block; font-size: 11px; color: #aaa; margin-bottom: 6px;}
+.cm-content {display: block; font-size: 14px; color: #555; line-height: 1.6;}
+.cm-input {position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 12px 16px; display: flex; gap: 10px; border-top: 1px solid #eee; box-sizing: border-box;}
+.inp {flex: 1; background: #f5f5f5; border-radius: 9999px; padding: 10px 16px; font-size: 14px;}
+.snd-btn {background: #07c160; color: #fff; border: none; border-radius: 9999px; padding: 10px 18px; font-size: 14px; box-sizing: border-box;}

@@ -1,0 +1,33 @@
+export default defineAppConfig({
+  pages: [
+    'pages/home/index',
+    'pages/test/index',
+    'pages/report/index',
+    'pages/tools/index',
+    'pages/treehole/index',
+    'pages/community/index',
+    'pages/profile/index',
+    'pages/scripts-detail/index',
+    'pages/practice/index',
+    'pages/post-detail/index',
+  ],
+  window: {
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#ffffff',
+    navigationBarTitleText: '职场清醒笔记',
+    navigationBarTextStyle: 'black',
+  },
+  tabBar: {
+    color: '#999999',
+    selectedColor: '#07c160',
+    backgroundColor: '#ffffff',
+    borderStyle: 'white',
+    list: [
+      { pagePath: 'pages/home/index', text: '首页', iconPath: 'assets/tab-home.png', selectedIconPath: 'assets/tab-home-active.png' },
+      { pagePath: 'pages/tools/index', text: '工具箱', iconPath: 'assets/tab-tools.png', selectedIconPath: 'assets/tab-tools-active.png' },
+      { pagePath: 'pages/treehole/index', text: '树洞', iconPath: 'assets/tab-tree.png', selectedIconPath: 'assets/tab-tree-active.png' },
+      { pagePath: 'pages/community/index', text: '社区', iconPath: 'assets/tab-community.png', selectedIconPath: 'assets/tab-community-active.png' },
+      { pagePath: 'pages/profile/index', text: '我的', iconPath: 'assets/tab-profile.png', selectedIconPath: 'assets/tab-profile-active.png' },
+    ],
+  },
+});

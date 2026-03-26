@@ -1,0 +1,66 @@
+/* Test page styles */
+.page-intro {min-height: 100vh; background: #1a1a2e; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box;}
+.intro-hero {text-align: center; max-width: 320px;}
+.intro-mascot {display: block; font-size: 64px; margin-bottom: 16px;}
+.intro-title {display: block; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px;}
+.intro-sub {display: block; font-size: 14px; color: rgba(255,255,255,.5); margin-bottom: 16px;}
+.intro-desc {display: block; font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.7; margin-bottom: 32px;}
+.start-btn {background: #07c160; color: #fff; border: none; border-radius: 9999px; padding: 14px 32px; font-size: 16px; font-weight: 600; width: 100%; display: block; box-sizing: border-box; margin-top: 16px;}
+
+.page-result {min-height: 100vh; background: #f0f0f0; display: flex; flex-direction: column;}
+.page-chat {min-height: 100vh; background: #ededed; display: flex; flex-direction: column;}
+.chat-header {background: #fff; padding: 12px 16px; border-bottom: 1px solid #e0e0e0; display: flex; flex-direction: column; align-items: center;}
+.ch-title {font-size: 15px; font-weight: 600; color: #333;}
+.ch-sub {font-size: 12px; color: #aaa; margin-top: 2px;}
+.progress-bar {background: #fff; padding: 8px 16px; display: flex; gap: 4px;}
+.prog {flex: 1; height: 3px; border-radius: 9999px; background: #ddd;}
+.prog.done {background: #07c160;}
+.prog.active {background: #07c160; opacity: 0.7;}
+
+.messages {flex: 1; overflow-y: auto; padding: 12px 12px 8px;}
+.context-tag {text-align: center; margin-bottom: 12px;}
+.ct {background: rgba(255,255,255,.8); padding: 4px 14px; border-radius: 9999px; font-size: 12px; color: #888; display: inline-block;}
+
+.msg-row {display: flex; align-items: flex-end; gap: 8px; margin-bottom: 10px;}
+.msg-row.user {flex-direction: row-reverse;}
+.avatar {width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;}
+.av-txt {color: #fff; font-size: 12px; font-weight: 600;}
+.av-me {background: #07c160;}
+.bubble {max-width: 72%; border-radius: 16px; padding: 10px 14px; font-size: 14px; line-height: 1.6; box-sizing: border-box;}
+.bubble-me {background: #07c160; color: #fff; border-bottom-right-radius: 4px;}
+.bubble-other {background: #fff; color: #333; border-bottom-left-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.08);}
+.bubble-highlight {background: #fff5f5; color: #9f1239; border: 1px solid #fecdd3; border-bottom-left-radius: 4px;}
+.btext {display: block;}
+.monologue-row {display: flex; align-items: flex-start; gap: 8px; margin: 12px 0;}
+.av-mono {width: 36px; height: 36px; border-radius: 50%; background: #ede7f6; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #7b4bbd; font-weight: 600; flex-shrink: 0;}
+.bubble-mono {background: #fff; border-bottom-left-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.08); flex: 1;}
+.mono-label {display: block; font-size: 11px; color: #7b4bbd; font-weight: 500; margin-bottom: 4px;}
+.mono-text {display: block; font-size: 13px; color: #555; font-style: italic; line-height: 1.6;}
+.quote-block {background: #fff5f5; border: 1px solid #fecdd3; border-radius: 12px; padding: 10px 14px; margin: 8px 0;}
+.qb-label {display: block; font-size: 11px; color: #f87171; font-weight: 500; margin-bottom: 4px;}
+.qb-text {display: block; font-size: 13px; color: #9f1239; font-style: italic; line-height: 1.5;}
+.tags-row {display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0;}
+.htag {background: #fff5f5; color: #f87171; padding: 2px 10px; border-radius: 9999px; font-size: 11px;}
+
+.selected-reply {display: flex; justify-content: flex-end; margin-top: 8px;}
+.reply-bar {background: #fff; padding: 12px; border-top: 1px solid #eee;}
+.rb-label {display: block; font-size: 12px; color: #aaa; margin-bottom: 8px;}
+.reply-btn {background: #f7f7f7; border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; display: block; width: 100%; text-align: left; box-sizing: border-box; border: none;}
+.reply-btn:last-child {margin-bottom: 0;}
+.rbt {display: block; font-size: 13px; color: #333; line-height: 1.5;}
+.feedback-card {background: #f0fdf4; padding: 12px 14px; border-radius: 12px; margin: 8px 0; border-left: 3px solid #22c55e;}
+.fc-header {display: flex; align-items: center; gap: 8px;}
+.fc-badge {font-size: 13px; font-weight: 600;}
+.fc-hint {font-size: 12px; color: #666;}
+
+.res-header {background: linear-gradient(135deg, #07c160, #06a356); padding: 32px 24px; text-align: center; border-radius: 0 0 32px 32px;}
+.res-title {display: block; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;}
+.res-score-card {}
+.res-score-row {display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;}
+.res-emoji {font-size: 28px;}
+.res-score {font-size: 56px; font-weight: 800;}
+.res-unit {font-size: 18px; color: rgba(255,255,255,.8);}
+.res-desc {font-size: 14px;}
+.res-actions {padding: 24px;}
+.res-btn {background: #fff; color: #07c160; border: none; border-radius: 9999px; padding: 14px; font-size: 15px; font-weight: 600; width: 100%; display: block; box-sizing: border-box; margin-bottom: 12px;}
+.res-back {background: rgba(255,255,255,.2); color: #fff; border: 1px solid rgba(255,255,255,.4); border-radius: 9999px; padding: 14px; font-size: 14px; width: 100%; display: block; box-sizing: border-box;}

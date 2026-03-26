@@ -1,0 +1,22 @@
+.page{padding:16px;background:#f0f0f0;min-height:100vh}
+.page-title{display:block;font-size:16px;font-weight:700;color:#333;margin-bottom:4px}
+.page-desc{display:block;font-size:12px;color:#aaa;margin-bottom:16px}
+.scenario-list{}
+.scenario-item{background:#fff;border-radius:16px;padding:16px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.scenario-left{display:flex;align-items:flex-start;gap:12px;flex:1}
+.scenario-icon{font-size:32px;flex-shrink:0;line-height:1}
+.scenario-info{flex:1}
+.scenario-title{display:block;font-size:14px;font-weight:600;color:#333;margin-bottom:4px}
+.scenario-intro{display:block;font-size:12px;color:#888;line-height:1.5;margin-bottom:6px}
+.scenario-diff{display:flex;gap:2px}
+.star{font-size:12px;color:#ddd}
+.star.active{color:#f59e0b}
+.arrow{font-size:20px;color:#ddd;flex-shrink:0}
+.script-list{}
+.script-item{background:#fff;border-radius:16px;padding:14px 16px;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.script-icon{font-size:24px;flex-shrink:0}
+.script-info{flex:1}
+.script-title{display:block;font-size:14px;font-weight:600;color:#333;margin-bottom:2px}
+.script-desc{display:block;font-size:12px;color:#888;line-height:1.4}
+.script-tag{background:#f5f5f5;border-radius:9999px;padding:2px 8px;flex-shrink:0}
+.tag-text{font-size:11px;color:#666}

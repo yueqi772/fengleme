@@ -1,0 +1,8 @@
+page {
+  background: #f7f7f7;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', Helvetica, Arial, sans-serif;
+  font-size: 28rpx;
+  color: #333;
+  height: 100%;
+  box-sizing: border-box;
+}
