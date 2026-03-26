@@ -1,0 +1,7 @@
+{
+  "desc": "关于本项目及其功能 README",
+  "rules": [{
+    "action": "allow",
+    "page": "*"
+  }]
+}
