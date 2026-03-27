@@ -3,6 +3,7 @@
   min-height: 100vh;
   background: #f7f7f7;
   padding-bottom: env(safe-area-inset-bottom);
+  padding-top: 0;
 }
 
 /* ===== 顶部绿色横幅区 ===== */
@@ -190,8 +191,13 @@
 .quick-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20rpx;
   margin-bottom: 24rpx;
+}
+.quick-grid::before,
+.quick-grid::after {
+  content: '';
+  display: block;
+  /* no grid gap fallback */
 }
 
 .quick-item {
@@ -200,7 +206,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4rpx;
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+  box-sizing: border-box;
+}
+
+.quick-item:nth-child(2n) {
+  margin-right: 0;
 }
 
 .quick-blue {
@@ -285,15 +297,21 @@
 .practice-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .practice-item {
   display: flex;
   align-items: center;
-  gap: 16rpx;
   padding: 18rpx 0;
   border-bottom: 1rpx solid #f0f0f0;
+  /* gap fallback */
+  padding-right: 0;
+}
+
+.practice-item::after {
+  content: '';
+  flex: 1;
+  /* spacer for gap replacement */
 }
 
 .practice-item:last-child {
@@ -307,6 +325,7 @@
   width: 52rpx;
   text-align: center;
   flex-shrink: 0;
+  margin-right: 16rpx;
 }
 
 .practice-text {
@@ -351,7 +370,6 @@
 .calendar-weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 4rpx;
   margin-bottom: 8rpx;
 }
 
@@ -368,7 +386,6 @@
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 4rpx;
 }
 
 .calendar-cell {
@@ -423,7 +440,6 @@
 .emotion-stat-row {
   display: flex;
   align-items: center;
-  gap: 12rpx;
   margin-bottom: 12rpx;
 }
 
@@ -437,6 +453,7 @@
   width: 40rpx;
   text-align: center;
   flex-shrink: 0;
+  margin-right: 12rpx;
 }
 
 .emotion-stat-bar {
@@ -445,6 +462,7 @@
   background: #f0f0f0;
   border-radius: 5rpx;
   overflow: hidden;
+  margin-right: 12rpx;
 }
 
 .emotion-stat-fill {
@@ -472,7 +490,11 @@
 .pua-row {
   display: flex;
   align-items: center;
-  gap: 12rpx;
+  margin-bottom: 14rpx;
+}
+
+.pua-row:last-child {
+  margin-bottom: 0;
 }
 
 .pua-emoji {
@@ -481,6 +503,7 @@
   width: 40rpx;
   text-align: center;
   flex-shrink: 0;
+  margin-right: 12rpx;
 }
 
 .pua-type {
@@ -491,6 +514,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-right: 12rpx;
 }
 
 .pua-bar {
@@ -499,6 +523,7 @@
   background: #f0f0f0;
   border-radius: 5rpx;
   overflow: hidden;
+  margin-right: 12rpx;
 }
 
 .pua-bar-fill {
