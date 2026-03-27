@@ -184,11 +184,11 @@ export default function HomePage() {
             ))}
           </View>
 
-          {/* 日期网格 */}
+          {/* 日期网格：每行7天，flex布局 */}
           <View className="calendar-grid">
             {/* 空白填充格 */}
             {Array.from({ length: firstDay }, (_, i) => (
-              <View key={`empty-${i}`} className="calendar-cell calendar-empty" />
+              <View key={`empty-${i}`} className="calendar-empty-cell" />
             ))}
             {/* 日期格 */}
             {Array.from({ length: daysInMonth }, (_, i) => {
@@ -201,7 +201,7 @@ export default function HomePage() {
                   key={day}
                   className={`calendar-cell ${isToday ? 'calendar-today' : 'calendar-normal'}`}
                 >
-                  <Text className="calendar-day-text">{day}</Text>
+                  <Text className="calendar-day">{day}</Text>
                   {emotion && <Text className="calendar-emotion">{EMOTION_MAP[emotion]}</Text>}
                 </View>
               );

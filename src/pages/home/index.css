@@ -6,13 +6,14 @@
   padding-top: 0;
 }
 
-/* ===== 顶部绿色横幅区 ===== */
+/* ===== 顶部绿色横幅 ===== */
 .hero {
   background: linear-gradient(160deg, #07c160 0%, #06a34e 100%);
-  border-radius: 0 0 48rpx 48rpx;
+  /* 无圆角，直角矩形 */
+  border-radius: 0;
+  overflow: hidden;
   padding: 48rpx 36rpx 56rpx;
   position: relative;
-  overflow: hidden;
 }
 
 /* 右侧装饰树木 */
@@ -22,7 +23,7 @@
   top: 36rpx;
   font-size: 96rpx;
   line-height: 1;
-  opacity: 0.35;
+  opacity: 0.3;
   pointer-events: none;
 }
 
@@ -49,15 +50,14 @@
 /* ===== 主内容区 ===== */
 .page-body {
   padding: 0 28rpx 40rpx;
-  margin-top: -32rpx;
   position: relative;
   z-index: 1;
 }
 
-/* ===== 白色悬浮卡片（风险测试入口） ===== */
+/* ===== 白色悬浮卡片（测试入口） ===== */
 .hero-card {
   background: #fff;
-  border-radius: 24rpx;
+  border-radius: 0;
   padding: 32rpx 32rpx 28rpx;
   margin-bottom: 24rpx;
   box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
@@ -104,7 +104,7 @@
 /* 风险结果卡片 */
 .risk-card {
   background: #fff;
-  border-radius: 24rpx;
+  border-radius: 0;
   padding: 28rpx 32rpx 24rpx;
   margin-bottom: 24rpx;
   box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
@@ -183,7 +183,6 @@
   font-weight: 600 !important;
   padding: 18rpx 32rpx !important;
   width: auto !important;
-  display: inline-block !important;
   box-shadow: 0 4rpx 12rpx rgba(7,193,96,0.3);
 }
 
@@ -197,11 +196,10 @@
 .quick-grid::after {
   content: '';
   display: block;
-  /* no grid gap fallback */
 }
 
 .quick-item {
-  border-radius: 24rpx;
+  border-radius: 0;
   padding: 32rpx 24rpx 28rpx;
   display: flex;
   flex-direction: column;
@@ -260,7 +258,7 @@
 /* ===== 情景练习室专区 ===== */
 .section-card {
   background: #fff;
-  border-radius: 24rpx;
+  border-radius: 0;
   padding: 28rpx 28rpx 24rpx;
   margin-bottom: 24rpx;
   box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05);
@@ -304,14 +302,12 @@
   align-items: center;
   padding: 18rpx 0;
   border-bottom: 1rpx solid #f0f0f0;
-  /* gap fallback */
   padding-right: 0;
 }
 
 .practice-item::after {
   content: '';
   flex: 1;
-  /* spacer for gap replacement */
 }
 
 .practice-item:last-child {
@@ -383,51 +379,66 @@
   font-size: 20rpx;
 }
 
+/* 日历主体：与网页版一致，每行动一行日期 */
 .calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-row {
+  display: flex;
+  margin-bottom: 8rpx;
 }
 
 .calendar-cell {
-  aspect-ratio: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 12rpx;
-  min-height: 64rpx;
-  gap: 2rpx;
+  min-height: 72rpx;
+  position: relative;
 }
 
-.calendar-day-text {
-  color: #555;
-  font-size: 24rpx;
-  display: block;
-  line-height: 1;
+.calendar-day {
+  font-size: 26rpx;
   font-weight: 500;
-}
-
-.calendar-emotion {
-  font-size: 14rpx;
-  display: block;
+  color: #555;
   line-height: 1;
+  display: block;
 }
 
-.calendar-normal {
-  background: #f5f5f5;
-}
-
-.calendar-today {
-  background: #07c160;
-}
-
-.calendar-today .calendar-day-text {
+.calendar-today .calendar-day {
   color: #fff;
   font-weight: 700;
 }
 
-.calendar-empty {
+.calendar-emotion {
+  font-size: 18rpx;
+  display: block;
+  line-height: 1;
+  margin-top: 4rpx;
+}
+
+.calendar-empty-cell {
+  flex: 1;
+  min-height: 72rpx;
+}
+
+.calendar-today {
+  background: #07c160;
+  border-radius: 50%;
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-normal {
   background: transparent;
+  border-radius: 0;
 }
 
 /* 情绪统计 */
@@ -484,7 +495,6 @@
 .pua-list {
   display: flex;
   flex-direction: column;
-  gap: 14rpx;
 }
 
 .pua-row {
