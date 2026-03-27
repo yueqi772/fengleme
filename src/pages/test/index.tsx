@@ -2,9 +2,10 @@ import { useState } from 'react';
 import Taro from '@tarojs/taro';
 import { View, Text, ScrollView } from '@tarojs/components';
 import { storage, generateId, getRiskInfo } from '../../utils/storage';
+import DigitalHuman, { type MoodKey } from '../../components/DigitalHuman/index';
 import './index.css';
 
-// ─── Questions data (12 questions) ────────────────────
+// ─── Types ────────────────────────────────────────────
 interface ChatMessage {
   role: 'boss' | 'colleague' | 'hr' | 'you' | 'system';
   name?: string;
@@ -184,7 +185,7 @@ type ReplyType = 'a' | 'b' | 'c';
 interface ReplyOption {
   id: ReplyType;
   text: string;
-  reactionMood: string;
+  reactionMood: MoodKey;
   hint: string;
 }
 
@@ -277,6 +278,7 @@ function getMoodLabel(mood: string): string {
 }
 
 type FeedbackLevel = 'good' | 'neutral' | 'bad';
+
 function getFeedbackLevel(mood: string): FeedbackLevel {
   const good = ['empowered', 'confident', 'hopeful', 'determined', 'excited'];
   const bad = ['sad', 'humiliated', 'angry', 'violated', 'broken', 'isolated'];
@@ -284,6 +286,16 @@ function getFeedbackLevel(mood: string): FeedbackLevel {
   if (bad.includes(mood)) return 'bad';
   return 'neutral';
 }
+
+const avatarColors: Record<string, string> = {
+  boss: '#e54d4d', colleague: '#4a90d9', hr: '#9055d9', you: '#07c160', system: '#888',
+};
+const avatarText: Record<string, string> = {
+  boss: '王', colleague: '同', hr: '人', you: '我', system: '…',
+};
+const nameColors: Record<string, string> = {
+  boss: '#e54d4d', colleague: '#4a90d9', hr: '#9055d9', you: '#07c160',
+};
 
 export default function TestPage() {
   const [step, setStep] = useState<'intro' | 'story' | 'result'>('intro');
@@ -303,6 +315,7 @@ export default function TestPage() {
     setAnswers([]);
     setSelectedReply(null);
     setHistoryMoods([]);
+    setShowFeedback(false);
   }
 
   function handleSelectReply(r: ReplyOption) {
@@ -318,7 +331,6 @@ export default function TestPage() {
     setAnswers(newAnswers);
     setShowFeedback(false);
     if (isLast) {
-      // Calculate score
       const aCount = newAnswers.filter(a => a.replyId === 'a').length;
       const score = Math.round((1 - aCount / 12) * 100);
       const testResults = storage.get('testResults') || [];
@@ -339,22 +351,14 @@ export default function TestPage() {
     }
   }
 
-  const avatarColors: Record<string, string> = {
-    boss: '#e54d4d', colleague: '#4a90d9', hr: '#9055d9', you: '#07c160', system: '#888',
-  };
-  const avatarText: Record<string, string> = {
-    boss: '王', colleague: '同', hr: '人', you: '我', system: '…',
-  };
-  const nameColors: Record<string, string> = {
-    boss: '#e54d4d', colleague: '#4a90d9', hr: '#9055d9', you: '#07c160',
-  };
-
   // ── INTRO ──
   if (step === 'intro') {
     return (
       <View className="test-intro-container">
         <View className="test-intro-body">
-          <View className="test-intro-avatar">🧍</View>
+          <View className="test-intro-dh">
+            <DigitalHuman mood="confident" size={90} showLabel={false} />
+          </View>
           <Text className="test-intro-title">小林的职场故事</Text>
           <Text className="test-intro-subtitle">微信聊天记录沉浸式体验</Text>
           <Text className="test-intro-desc">
@@ -389,6 +393,7 @@ export default function TestPage() {
     const ratio = aCount / 12;
     const finalScore = Math.round((1 - ratio) * 100);
     const risk = getRiskInfo(finalScore);
+    const finalMood: MoodKey = ratio >= 0.7 ? 'empowered' : ratio >= 0.4 ? 'confident' : 'broken';
     const info = ratio >= 0.7
       ? { e: '🌟', t: '觉醒者', d: '你帮助小林找到了职场边界的力量！' }
       : ratio >= 0.4
@@ -406,19 +411,22 @@ export default function TestPage() {
         </View>
         <View className="test-result-body">
           <View className="test-result-card">
+            <View className="test-result-dh-wrap">
+              <DigitalHuman mood={finalMood} size={110} showLabel={false} />
+            </View>
             <Text className="test-result-big-emoji">{info.e}</Text>
             <Text className="test-result-title">{info.t}</Text>
             <Text className="test-result-desc">{info.d}</Text>
           </View>
 
-          <View className="test-result-score-card" style={{ background: risk.bg }}>
+          <View className="test-result-score-card" style={{ background: risk.bg } as any}>
             <Text className="test-result-score-label">职场压力指数</Text>
             <View className="test-result-score-row">
               <Text className="test-result-score-emoji">{risk.emoji}</Text>
-              <Text className="test-result-score-num" style={{ color: risk.color }}>{finalScore}</Text>
+              <Text className="test-result-score-num" style={{ color: risk.color } as any}>{finalScore}</Text>
               <Text className="test-result-score-unit">/100</Text>
             </View>
-            <Text className="test-result-risk-desc" style={{ color: risk.color }}>{risk.desc}</Text>
+            <Text className="test-result-risk-desc" style={{ color: risk.color } as any}>{risk.desc}</Text>
           </View>
 
           <View className="test-result-stats-card">
@@ -441,7 +449,7 @@ export default function TestPage() {
                 <View key={i} className="test-result-mood-item">
                   <View
                     className="test-result-mood-circle"
-                    style={{ background: MOOD_COLOR[a.reactionMood] || '#e5e7eb' }}
+                    style={{ background: MOOD_COLOR[a.reactionMood] || '#e5e7eb' } as any}
                   >
                     <Text className="test-result-mood-emoji">{MOOD_EMOJI[a.reactionMood] || '😐'}</Text>
                   </View>
@@ -467,16 +475,17 @@ export default function TestPage() {
 
   // ── STORY ──
   if (!question) return null;
+
   const level = selectedReply ? getFeedbackLevel(selectedReply.reactionMood) : 'neutral';
   const feedbackCfg: Record<FeedbackLevel, {
     border: string; label: string; btnBg: string;
     sheetBg: string; topBg: string; emoji: string;
   }> = {
-    good: { border: '#86efac', label: '✓ 较好的回应', btnBg: '#22c55e', sheetBg: '#f0fdf4', topBg: '#dcfce7', emoji: '🌟' },
+    good:    { border: '#86efac', label: '✓ 较好的回应', btnBg: '#22c55e', sheetBg: '#f0fdf4', topBg: '#dcfce7', emoji: '🌟' },
     neutral: { border: '#fde68a', label: '○ 一般的回应', btnBg: '#f59e0b', sheetBg: '#fffbeb', topBg: '#fef3c7', emoji: '💭' },
-    bad: { border: '#fecdd3', label: '✗ 艰难的回应', btnBg: '#e11d48', sheetBg: '#fff1f2', topBg: '#ffe4e6', emoji: '💔' },
+    bad:     { border: '#fecdd3', label: '✗ 艰难的回应', btnBg: '#e11d48', sheetBg: '#fff1f2', topBg: '#ffe4e6', emoji: '💔' },
   };
-  const cfg = feedbackCfg[level];
+  const fcfg = feedbackCfg[level];
 
   return (
     <View className="test-story-container">
@@ -499,12 +508,12 @@ export default function TestPage() {
         {Array.from({ length: 12 }, (_, i) => (
           <View
             key={i}
-            className={`test-progress-dot ${i <= currentQ ? 'test-progress-dot-active' : ''}`}
+            className={`test-progress-dot${i <= currentQ ? ' test-progress-dot-active' : ''}`}
             style={{
               width: i < currentQ ? 16 : i === currentQ ? 10 : 6,
               background: i <= currentQ ? '#07c160' : '#ccc',
               opacity: i < currentQ ? 1 : i === currentQ ? 0.8 : 0.4,
-            }}
+            } as any}
           />
         ))}
       </View>
@@ -517,7 +526,7 @@ export default function TestPage() {
             <View
               key={i}
               className="test-emotion-dot"
-              style={{ background: MOOD_COLOR[m] || '#e5e7eb' }}
+              style={{ background: MOOD_COLOR[m] || '#e5e7eb' } as any}
             >
               <Text className="test-emotion-dot-emoji">{MOOD_EMOJI[m] || '😐'}</Text>
             </View>
@@ -543,22 +552,22 @@ export default function TestPage() {
           }
           const isMe = msg.role === 'you';
           return (
-            <View key={i} className={`test-bubble-row ${isMe ? 'test-bubble-row-me' : ''}`}>
+            <View key={i} className={`test-bubble-row${isMe ? ' test-bubble-row-me' : ''}`}>
               <View
                 className="test-avatar"
-                style={{ background: avatarColors[msg.role] || '#888' }}
+                style={{ background: avatarColors[msg.role] || '#888' } as any}
               >
                 <Text className="test-avatar-text">{avatarText[msg.role] || '?'}</Text>
               </View>
-              <View className={`test-bubble-col ${isMe ? 'test-bubble-col-me' : ''}`}>
+              <View className={`test-bubble-col${isMe ? ' test-bubble-col-me' : ''}`}>
                 {msg.name && !isMe && (
-                  <Text className="test-bubble-name" style={{ color: nameColors[msg.role] || '#888' }}>
+                  <Text className="test-bubble-name" style={{ color: nameColors[msg.role] || '#888' } as any}>
                     {msg.name}
                   </Text>
                 )}
                 <View
-                  className={`test-bubble ${isMe ? 'test-bubble-me' : msg.highlight ? 'test-bubble-highlight' : 'test-bubble-other'}`}
-                  style={msg.dim ? { opacity: 0.5 } : {}}
+                  className={`test-bubble${isMe ? ' test-bubble-me' : msg.highlight ? ' test-bubble-highlight' : ' test-bubble-other'}`}
+                  style={msg.dim ? { opacity: 0.5 } as any : {}}
                 >
                   <Text className="test-bubble-text">{msg.content}</Text>
                 </View>
@@ -621,20 +630,35 @@ export default function TestPage() {
       {/* Feedback overlay */}
       {showFeedback && selectedReply && (
         <View className="test-feedback-overlay">
-          <View className="test-feedback-mask" onClick={() => {}} />
-          <View className="test-feedback-sheet" style={{ borderColor: cfg.border, background: cfg.sheetBg }}>
-            {/* 顶部色条 */}
-            <View className="test-feedback-top-bar" style={{ background: cfg.topBg }}>
-              <View style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px' }}>
-                <Text style={{ fontSize: 28 }}>{cfg.emoji}</Text>
-                <View style={{ flex: 1 }}>
-                  <View className="test-feedback-badge" style={{ background: cfg.btnBg }}>
-                    <Text className="test-feedback-badge-text">{cfg.label}</Text>
+          <View className="test-feedback-mask" />
+          <View
+            className="test-feedback-sheet"
+            style={{ borderColor: fcfg.border, background: fcfg.sheetBg } as any}
+          >
+            {/* Top bar with DigitalHuman */}
+            <View
+              className="test-feedback-top-bar"
+              style={{ background: fcfg.topBg } as any}
+            >
+              <View className="test-feedback-top-inner">
+                <Text className="test-feedback-top-emoji">{fcfg.emoji}</Text>
+                <View className="test-feedback-top-mid">
+                  <View
+                    className="test-feedback-badge"
+                    style={{ background: fcfg.btnBg } as any}
+                  >
+                    <Text className="test-feedback-badge-text">{fcfg.label}</Text>
                   </View>
                   <Text className="test-feedback-mood">{getMoodLabel(selectedReply.reactionMood)}</Text>
                 </View>
+                {/* DigitalHuman 小林在右端 */}
+                <View className="test-feedback-dh">
+                  <DigitalHuman mood={selectedReply.reactionMood} size={72} showLabel={false} />
+                </View>
               </View>
             </View>
+
+            {/* Reply bubble */}
             <View className="test-feedback-reply-row">
               <View className="test-feedback-me-avatar">
                 <Text className="test-feedback-me-avatar-text">我</Text>
@@ -643,22 +667,26 @@ export default function TestPage() {
                 <Text className="test-feedback-reply-text">{selectedReply.text}</Text>
               </View>
             </View>
+
+            {/* Hint */}
             <View className="test-feedback-hint">
               <Text className="test-feedback-hint-label">💡 这一刻发生了什么</Text>
               <Text className="test-feedback-hint-text">{selectedReply.hint}</Text>
               <View className="test-feedback-mood-row">
                 <View
                   className="test-feedback-mood-circle"
-                  style={{ background: MOOD_COLOR[selectedReply.reactionMood] || '#e5e7eb' }}
+                  style={{ background: MOOD_COLOR[selectedReply.reactionMood] || '#e5e7eb' } as any}
                 >
                   <Text className="test-feedback-mood-emoji">{MOOD_EMOJI[selectedReply.reactionMood] || '😐'}</Text>
                 </View>
                 <Text className="test-feedback-mood-label">小林现在：{getMoodLabel(selectedReply.reactionMood)}</Text>
               </View>
             </View>
+
+            {/* Next button */}
             <View
               className="test-feedback-btn"
-              style={{ background: cfg.btnBg }}
+              style={{ background: fcfg.btnBg } as any}
               onClick={handleNext}
             >
               <Text className="test-feedback-btn-text">{isLast ? '🌟 查看结局' : '继续 →'}</Text>
