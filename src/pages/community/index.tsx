@@ -1,49 +1,166 @@
-import React, { useState } from 'react';
-import { View, Text, Button } from '@tarojs/components';
+import { useState } from 'react';
 import Taro from '@tarojs/taro';
+import { View, Text, ScrollView } from '@tarojs/components';
+import { MOCK_POSTS, PUA_TYPE_COLORS, INDUSTRY_MAP } from '../../data';
+import { storage } from '../../utils/storage';
 import './index.css';
 
-const MOCK_POSTS = [
-  { id: 'p1', author: '匿名用户', industry: '互联网', content: '今天老板又在下班前10分钟布置新任务，说"不急但明天要"。已经连续三周这样了，不知道该不该说。', likes: 42, comments: 8, time: '3小时前', tags: ['边界侵犯', '画大饼'] },
-  { id: 'p2', author: '小A', industry: '教育', content: '被HR约谈，说我"状态不对"，让我"主动考虑其他机会"。劳动仲裁有用吗？', likes: 128, comments: 31, time: '5小时前', tags: ['情感勒索', '孤立排挤'] },
-  { id: 'p3', author: '阿杰', industry: '金融', content: '老板当着全组的面说我的方案是"垃圾"，然后让另一个人重做。但方案是他批准的。', likes: 89, comments: 22, time: '昨天', tags: ['否定价值', '煤气灯效应'] },
+const INDUSTRIES = ['全部', '互联网', '教育', '金融', '医疗', '其他'];
+const POST_TYPES = [
+  { id: '全部', label: '全部' },
+  { id: '画大饼', label: '画大饼' },
+  { id: '煤气灯效应', label: '煤气灯' },
+  { id: '情感勒索', label: '情感勒索' },
+  { id: '边界侵犯', label: '边界侵犯' },
+  { id: '否定价值', label: '否定价值' },
 ];
 
+function formatTime(ts: number): string {
+  const diff = Date.now() - ts;
+  const h = Math.floor(diff / 3600000);
+  if (h < 1) return '刚刚';
+  if (h < 24) return `${h}小时前`;
+  return `${Math.floor(h / 24)}天前`;
+}
+
 export default function CommunityPage() {
-  const [posts] = useState(MOCK_POSTS);
-  const [tab, setTab] = useState('全部');
-  const tabs = ['全部', '互联网', '教育', '金融', '医疗'];
+  const [industryFilter, setIndustryFilter] = useState('全部');
+  const [typeFilter, setTypeFilter] = useState('全部');
+  const [posts, setPosts] = useState(() => {
+    const saved = storage.get('posts');
+    return saved || MOCK_POSTS;
+  });
+
+  const filtered = posts.filter((p: any) => {
+    if (industryFilter !== '全部' && p.industry !== industryFilter) return false;
+    if (typeFilter !== '全部' && !p.tags.includes(typeFilter)) return false;
+    return true;
+  });
+
+  function toggleLike(id: string) {
+    const updated = posts.map((p: any) =>
+      p.id === id ? { ...p, liked: !p.liked, likes: p.liked ? p.likes - 1 : p.likes + 1 } : p
+    );
+    setPosts(updated);
+    storage.set('posts', updated);
+  }
+
+  function toggleResonate(id: string) {
+    const updated = posts.map((p: any) =>
+      p.id === id ? { ...p, resonated: !p.resonated, resonances: p.resonated ? p.resonances - 1 : p.resonances + 1 } : p
+    );
+    setPosts(updated);
+    storage.set('posts', updated);
+  }
+
+  function goToNewPost() {
+    Taro.navigateTo({ url: '/pages/post-detail/index' });
+  }
+
+  const typeLabel: Record<string, string> = {
+    '吐槽': '📢 吐槽帖',
+    '经验': '💡 经验帖',
+    '求助': '❓ 求助帖',
+  };
 
   return (
-    <View className="page">
-      <View className="tb">
-        <Text className="title">💬 互助社区</Text>
-        <Button className="pbtn" onClick={() => Taro.navigateTo({ url: '/pages/post-detail/index' })}>+ 发帖</Button>
+    <View className="community-page">
+      {/* Header */}
+      <View className="community-header">
+        <Text className="community-title">💬 同行社区</Text>
+        <View className="new-post-btn" onClick={goToNewPost}>
+          <Text className="new-post-text">+</Text>
+        </View>
       </View>
-      <View className="tabs">
-        {tabs.map(t => (
-          <View key={t} className={'tab ' + (tab === t ? 'active' : '')} onClick={() => setTab(t)}>
-            <Text>{t}</Text>
-          </View>
-        ))}
-      </View>
-      <View className="posts">
-        {posts.map(post => (
-          <View key={post.id} className="pc" onClick={() => Taro.navigateTo({ url: '/pages/post-detail/index' })}>
-            <View className="ptop">
-              <Text className="pauth">{post.author}</Text>
-              <Text className="pind">{post.industry}</Text>
-              <Text className="ptime">{post.time}</Text>
+
+      {/* Industry filter */}
+      <ScrollView scrollX className="filter-scroll">
+        <View className="filter-row">
+          {INDUSTRIES.map(ind => (
+            <View
+              key={ind}
+              className={`filter-chip ${industryFilter === ind ? 'filter-chip-industry-active' : 'filter-chip-default'}`}
+              onClick={() => setIndustryFilter(ind)}
+            >
+              <Text className="filter-chip-text">
+                {ind === '全部' ? '全部' : `${INDUSTRY_MAP[ind] || ''} ${ind}`}
+              </Text>
             </View>
-            <Text className="pcontent">{post.content}</Text>
-            <View className="ptags">{post.tags.map((t: string) => <Text key={t} className="ptag">#{t}</Text>)}</View>
-            <View className="pstats">
-              <Text className="pstat">👍 {post.likes}</Text>
-              <Text className="pstat">💬 {post.comments}</Text>
+          ))}
+        </View>
+      </ScrollView>
+
+      {/* Type filter */}
+      <ScrollView scrollX className="filter-scroll">
+        <View className="filter-row">
+          {POST_TYPES.map(t => (
+            <View
+              key={t.id}
+              className={`filter-chip ${typeFilter === t.id ? 'filter-chip-type-active' : 'filter-chip-default'}`}
+              onClick={() => setTypeFilter(t.id)}
+            >
+              <Text className="filter-chip-text">
+                {t.id === '全部' ? '全部' : `${PUA_TYPE_COLORS[t.id]?.emoji || ''} ${t.label}`}
+              </Text>
             </View>
-          </View>
-        ))}
-      </View>
+          ))}
+        </View>
+      </ScrollView>
+
+      {/* Posts */}
+      <ScrollView scrollY className="posts-scroll">
+        <View className="posts-list">
+          {filtered.length === 0 && (
+            <View className="empty-state">
+              <Text className="empty-icon">💬</Text>
+              <Text className="empty-text">还没有相关帖子</Text>
+              <View className="empty-btn" onClick={goToNewPost}>
+                <Text className="empty-btn-text">发第一个帖子</Text>
+              </View>
+            </View>
+          )}
+          {filtered.map((post: any) => {
+            const typeInfo = PUA_TYPE_COLORS[post.tags[0]] || PUA_TYPE_COLORS['否定价值'];
+            return (
+              <View key={post.id} className="post-card">
+                {/* Meta row */}
+                <View className="post-meta">
+                  <Text className="post-meta-industry">
+                    {INDUSTRY_MAP[post.industry]} {post.industry}·{post.workYears}
+                  </Text>
+                  <View
+                    className="post-type-tag"
+                    style={{ backgroundColor: typeInfo?.bg, color: typeInfo?.text }}
+                  >
+                    <Text className="post-type-tag-text">{typeLabel[post.type] || post.type}</Text>
+                  </View>
+                </View>
+                {/* Title */}
+                <Text className="post-title">{post.title}</Text>
+                {/* Content */}
+                <Text className="post-content">{post.content}</Text>
+                {/* Footer */}
+                <View className="post-footer">
+                  <View className="post-action" onClick={() => toggleLike(post.id)}>
+                    <Text className={`post-action-text ${post.liked ? 'action-liked' : ''}`}>
+                      👍 {post.likes}
+                    </Text>
+                  </View>
+                  <View className="post-action" onClick={() => toggleResonate(post.id)}>
+                    <Text className={`post-action-text ${post.resonated ? 'action-resonated' : ''}`}>
+                      🤝 {post.resonances}
+                    </Text>
+                  </View>
+                  <View className="post-action">
+                    <Text className="post-action-text">💬 {post.comments}</Text>
+                  </View>
+                  <Text className="post-time">{formatTime(post.timestamp)}</Text>
+                </View>
+              </View>
+            );
+          })}
+        </View>
+      </ScrollView>
     </View>
   );
 }

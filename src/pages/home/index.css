@@ -1,505 +1,405 @@
-/* ===== 全局页面 ===== */
-.page {
-  background: #ffffff;
-  min-height: 100vh;
-  padding-bottom: env(safe-area-inset-bottom);
+.home-container {
+  height: 100%;
+  background: #f5f5f5;
 }
 
-/* ===== 顶部绿色横幅 ===== */
-/* 与网页对齐：顶部留出导航栏高度，绿色向下延伸 */
-.hero {
-  background: linear-gradient(160deg, #00B050 0%, #009947 100%);
-  padding: 0 20px 20px;
+.home-hero {
+  background: linear-gradient(135deg, #07c160 0%, #22c55e 60%, #4ade80 100%);
+  padding: 40px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* 树木图标 */
-.hero-mascot {
-  display: block;
-  text-align: right;
-  font-size: 96rpx;
-  line-height: 1;
-  padding-top: 24rpx;
-  opacity: 0.9;
+.home-hero-icon {
+  font-size: 48px;
+  margin-bottom: 8px;
 }
 
-.hero-text-group {
-  padding-top: 0;
-}
-
-.hero-greeting {
-  color: #ffffff;
-  font-size: 24px;
+.home-hero-title {
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.4;
-  display: block;
-}
-
-.hero-sub {
-  color: rgba(255,255,255,0.75);
-  font-size: 14px;
-  margin-top: 4px;
-  display: block;
-  line-height: 1.5;
-}
-
-/* ===== 主内容区 ===== */
-.page-body {
-  padding: 0 16px 24px;
-}
-
-/* ===== 测试入口/风险卡片 ===== */
-.hero-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.hero-card-label {
-  color: #999;
-  font-size: 12px;
-  display: block;
+  color: #fff;
   margin-bottom: 6px;
 }
 
-.hero-card-title {
-  color: #222;
-  font-size: 18px;
-  font-weight: 700;
-  display: block;
-  line-height: 1.4;
-  margin-bottom: 4px;
-}
-
-.hero-card-desc {
-  color: #aaa;
+.home-hero-subtitle {
   font-size: 13px;
-  display: block;
-  margin-bottom: 16px;
-  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
 }
 
-.btn-test {
-  background: #00B050;
-  border: none;
-  border-radius: 9999px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  width: 100%;
-  padding: 14px 0;
-  text-align: center;
-  line-height: 1;
-  box-shadow: 0 4px 12px rgba(0,176,80,0.3);
+.home-section {
+  padding: 12px 16px 0;
 }
 
-/* 风险结果卡片 */
-.risk-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.risk-card-top {
+.home-section-header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.risk-card-title {
-  color: #333;
-  font-size: 18px;
+.home-section-title {
+  font-size: 15px;
   font-weight: 700;
+  color: #1a1a1a;
 }
 
-.risk-badge {
-  border-radius: 9999px;
-  padding: 4px 12px;
-  background: #fff1f0;
-}
-
-.risk-badge-text {
+.home-section-subtitle {
   font-size: 12px;
-  font-weight: 700;
-  color: #cf1322;
+  color: #999;
 }
 
-.risk-score-row {
+.home-section-more {
+  font-size: 12px;
+  color: #07c160;
+}
+
+.home-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* Assessment Card */
+.assessment-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.assessment-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 12px;
 }
 
-.risk-score-num {
-  font-size: 40px;
+.assessment-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.assessment-date {
+  font-size: 11px;
+  color: #999;
+}
+
+.assessment-score-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.assessment-score-emoji {
+  font-size: 24px;
+}
+
+.assessment-score {
+  font-size: 36px;
   font-weight: 800;
   line-height: 1;
 }
 
-.risk-score-unit {
-  color: #ccc;
+.assessment-score-unit {
   font-size: 14px;
-  margin-top: 4px;
+  color: #999;
 }
 
-.risk-progress {
-  flex: 1;
+.assessment-risk-level {
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.assessment-bar-wrap {
+  margin-bottom: 14px;
+}
+
+.assessment-bar-bg {
   height: 8px;
   background: #f0f0f0;
   border-radius: 4px;
   overflow: hidden;
-  margin-left: 12px;
 }
 
-.risk-progress-fill {
+.assessment-bar-fill {
   height: 100%;
   border-radius: 4px;
-  transition: width 0.4s ease;
+  transition: width 0.5s ease;
 }
 
-.risk-date {
-  color: #bbb;
-  font-size: 12px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.btn-report {
-  background: #00B050 !important;
-  border: none !important;
-  border-radius: 9999px !important;
-  color: #fff !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  padding: 12px 0 !important;
-  width: 100% !important;
-  box-shadow: 0 4px 12px rgba(0,176,80,0.3);
-}
-
-/* ===== 四宫格 ===== */
-/* 整体圆角，格子之间无缝隙，背景透过圆角 */
-.quick-grid {
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-
-.quick-item {
+.assessment-card-empty {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 16px;
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-  width: 50%;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
-.quick-blue { background: #e6f7ff; }
-.quick-orange { background: #fff7e6; }
-.quick-green { background: #f6ffed; }
-.quick-purple { background: #f9f0ff; }
-
-.quick-icon {
-  font-size: 32px;
-  display: block;
+.assessment-empty-icon {
+  font-size: 40px;
   margin-bottom: 8px;
 }
 
-.quick-label {
-  font-size: 15px;
+.assessment-empty-title {
+  font-size: 16px;
   font-weight: 700;
-  display: block;
-  line-height: 1.2;
-  text-align: center;
-  margin-bottom: 4px;
+  color: #1a1a1a;
+  margin-bottom: 6px;
 }
 
-.quick-sub {
-  color: #888;
-  font-size: 11px;
-  display: block;
-  line-height: 1.4;
-  text-align: center;
-}
-
-.quick-blue .quick-label { color: #1d4ed8; }
-.quick-orange .quick-label { color: #c2410c; }
-.quick-green .quick-label { color: #15803d; }
-.quick-purple .quick-label { color: #7e22ce; }
-
-/* ===== 通用卡片 ===== */
-.section-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-.section-emoji {
-  font-size: 18px;
-  display: block;
-  margin-right: 8px;
-}
-
-.section-title {
-  color: #222;
-  font-size: 17px;
-  font-weight: 700;
-  display: block;
-}
-
-.section-sub {
-  color: #999;
+.assessment-empty-desc {
   font-size: 13px;
-  display: block;
+  color: #666;
   margin-bottom: 16px;
-  padding-left: 26px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-.tag-green {
-  background: #f6ffed;
-  border-radius: 9999px;
-  padding: 2px 10px;
-  margin-left: 8px;
+.home-btn-primary {
+  background: #07c160;
+  border-radius: 24px;
+  padding: 10px 24px;
 }
 
-.tag-green-text {
-  color: #16a34a;
-  font-size: 11px;
+.home-btn-primary-text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-/* ===== 情景练习室 ===== */
-.practice-list {
+.home-btn-outline {
+  border: 1px solid #07c160;
+  border-radius: 24px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-btn-outline-text {
+  color: #07c160;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Quick Entry Grid */
+.home-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.home-entry-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 12px;
   display: flex;
   flex-direction: column;
-}
-
-.practice-item {
-  display: flex;
   align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px solid #f5f5f5;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
-.practice-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.home-entry-icon {
+  font-size: 32px;
 }
 
-.practice-emoji {
-  font-size: 24px;
-  display: block;
-  width: 40px;
-  text-align: center;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-
-.practice-text {
-  color: #333;
-  font-size: 15px;
-  display: block;
-  flex: 1;
-}
-
-/* ===== 情绪日历 ===== */
-.cal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.cal-title {
-  color: #222;
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.cal-month {
-  color: #999;
+.home-entry-label {
   font-size: 13px;
+  font-weight: 600;
+  color: #333;
 }
 
-/* 星期表头 */
-.cal-week-row {
-  display: flex;
-  margin-bottom: 8px;
+/* Practice Scenarios scroll */
+.home-scenario-scroll {
+  white-space: nowrap;
+  padding-bottom: 4px;
 }
 
-.cal-week-cell {
-  width: 14.2857%;
+.home-scenario-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-right: 10px;
+  width: 110px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  white-space: normal;
   text-align: center;
-  padding: 4px 0;
 }
 
-.cal-week-text {
-  color: #bbb;
+.home-scenario-icon {
+  font-size: 28px;
+}
+
+.home-scenario-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+}
+
+.home-scenario-stars {
+  display: flex;
+  gap: 1px;
+}
+
+.star-filled {
+  color: #f59e0b;
   font-size: 12px;
 }
 
-/* 日期行 */
-.cal-row {
-  display: flex;
-  margin-bottom: 4px;
+.star-empty {
+  color: #e5e7eb;
+  font-size: 12px;
 }
 
-.cal-cell {
-  width: 14.2857%;
+/* Calendar */
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.calendar-weekday {
+  font-size: 11px;
+  color: #999;
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.calendar-cell {
+  aspect-ratio: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 56rpx;
 }
 
-.cal-day {
-  color: #555;
-  font-size: 14px;
-  font-weight: 500;
-  display: block;
-  line-height: 1;
-}
-
-.cal-emotion {
-  font-size: 10px;
-  display: block;
-  line-height: 1;
-  margin-top: 2px;
-}
-
-/* 今日圆形 */
-.cal-today {
-  background: #00B050;
+.calendar-day {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+}
+
+.calendar-day-today {
+  background: #dcfce7;
+}
+
+.calendar-day-num {
+  font-size: 11px;
+  color: #555;
+}
+
+.calendar-emoji {
+  font-size: 14px;
+}
+
+.calendar-stats {
+  margin-top: 14px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 8px;
 }
 
-.cal-today .cal-day {
-  color: #fff;
-  font-weight: 700;
-}
-
-/* 情绪统计 */
-.emotion-stats {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid #f5f5f5;
-}
-
-.emotion-stat-row {
+.calendar-stat-row {
   display: flex;
   align-items: center;
+  gap: 8px;
+}
+
+.calendar-stat-emoji {
+  font-size: 16px;
+  width: 20px;
+}
+
+.calendar-stat-name {
+  font-size: 12px;
+  color: #555;
+  width: 30px;
+}
+
+.calendar-stat-bar-bg {
+  flex: 1;
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.calendar-stat-bar-fill {
+  height: 100%;
+  background: #07c160;
+  border-radius: 3px;
+}
+
+.calendar-stat-count {
+  font-size: 11px;
+  color: #999;
+  width: 16px;
+  text-align: right;
+}
+
+/* PUA Type */
+.pua-type-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 10px;
 }
 
-.emotion-stat-row:last-child {
-  margin-bottom: 0;
-}
-
-.emotion-stat-emoji {
+.pua-type-emoji {
   font-size: 16px;
-  display: block;
-  width: 32px;
-  text-align: center;
-  flex-shrink: 0;
-  margin-right: 10px;
+  width: 20px;
 }
 
-.emotion-stat-bar {
-  flex: 1;
-  height: 8px;
-  background: #f0f0f0;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-right: 10px;
-}
-
-.emotion-stat-fill {
-  height: 100%;
-  background: #00B050;
-  border-radius: 4px;
-}
-
-.emotion-stat-count {
-  color: #bbb;
+.pua-type-name {
   font-size: 12px;
-  width: 40px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-/* ===== 问题行为分布 ===== */
-.pua-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.pua-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.pua-row:last-child {
-  margin-bottom: 0;
-}
-
-.pua-emoji {
-  font-size: 14px;
-  display: block;
-  width: 28px;
-  text-align: center;
-  flex-shrink: 0;
-  margin-right: 8px;
-}
-
-.pua-type {
   color: #555;
-  font-size: 13px;
-  width: 100px;
-  flex-shrink: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-right: 8px;
+  width: 64px;
 }
 
-.pua-bar {
+.pua-type-bar-bg {
   flex: 1;
-  height: 8px;
+  height: 6px;
   background: #f0f0f0;
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
-  margin-right: 8px;
 }
 
-.pua-bar-fill {
+.pua-type-bar-fill {
   height: 100%;
-  background: #ff7875;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
-.pua-count {
-  color: #bbb;
-  font-size: 12px;
-  width: 36px;
+.pua-type-count {
+  font-size: 11px;
+  color: #999;
+  width: 16px;
   text-align: right;
-  flex-shrink: 0;
+}
+
+.home-bottom-space {
+  height: 32px;
 }
