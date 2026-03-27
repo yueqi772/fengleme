@@ -170,9 +170,9 @@ export default function HomePage() {
 
         {/* ===== 情绪日历 ===== */}
         <View className="section-card">
-          <View className="calendar-header-row">
-            <Text className="calendar-title">情绪日历</Text>
-            <Text className="calendar-month">{currentMonth}</Text>
+          <View className="cal-header">
+            <Text className="cal-title">情绪日历</Text>
+            <Text className="cal-month">{currentMonth}</Text>
           </View>
 
           {/* 星期表头：固定一行 7 格 */}

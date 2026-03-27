@@ -1,233 +1,228 @@
 /* ===== 全局页面 ===== */
 .page {
-  background: #f7f7f7;
+  background: #ffffff;
   min-height: 100vh;
   padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* ===== 顶部绿色横幅 ===== */
+/* 与网页对齐：顶部留出导航栏高度，绿色向下延伸 */
 .hero {
-  background: linear-gradient(160deg, #07c160 0%, #06a34e 100%);
-  padding: 48rpx 36rpx 56rpx;
-  position: relative;
+  background: linear-gradient(160deg, #00B050 0%, #009947 100%);
+  padding: 0 20px 20px;
 }
 
+/* 树木图标 */
 .hero-mascot {
-  position: absolute;
-  right: 24rpx;
-  top: 50%;
-  transform: translateY(-50%);
+  display: block;
+  text-align: right;
   font-size: 96rpx;
   line-height: 1;
-  opacity: 0.3;
+  padding-top: 24rpx;
+  opacity: 0.9;
 }
 
 .hero-text-group {
-  position: relative;
-  z-index: 1;
+  padding-top: 0;
 }
 
 .hero-greeting {
-  color: rgba(255,255,255,0.95);
-  font-size: 32rpx;
+  color: #ffffff;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.4;
   display: block;
 }
 
 .hero-sub {
-  color: rgba(255,255,255,0.65);
-  font-size: 22rpx;
-  margin-top: 6rpx;
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  margin-top: 4px;
   display: block;
   line-height: 1.5;
 }
 
 /* ===== 主内容区 ===== */
 .page-body {
-  padding: 0 28rpx 40rpx;
-  position: relative;
-  z-index: 1;
+  padding: 0 16px 24px;
 }
 
 /* ===== 测试入口/风险卡片 ===== */
 .hero-card {
   background: #fff;
-  padding: 32rpx;
-  margin-bottom: 24rpx;
-  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .hero-card-label {
   color: #999;
-  font-size: 22rpx;
+  font-size: 12px;
   display: block;
-  margin-bottom: 8rpx;
+  margin-bottom: 6px;
 }
 
 .hero-card-title {
   color: #222;
-  font-size: 30rpx;
+  font-size: 18px;
   font-weight: 700;
   display: block;
   line-height: 1.4;
-  margin-bottom: 4rpx;
+  margin-bottom: 4px;
 }
 
 .hero-card-desc {
   color: #aaa;
-  font-size: 22rpx;
+  font-size: 13px;
   display: block;
-  margin-bottom: 24rpx;
+  margin-bottom: 16px;
   line-height: 1.5;
 }
 
 .btn-test {
-  background: linear-gradient(135deg, #07c160, #06a34e);
+  background: #00B050;
   border: none;
-  border-radius: 9999rpx;
+  border-radius: 9999px;
   color: #fff;
-  font-size: 28rpx;
+  font-size: 16px;
   font-weight: 600;
   width: 100%;
-  padding: 22rpx 0;
+  padding: 14px 0;
   text-align: center;
   line-height: 1;
-  box-shadow: 0 4rpx 16rpx rgba(7,193,96,0.35);
+  box-shadow: 0 4px 12px rgba(0,176,80,0.3);
 }
 
 /* 风险结果卡片 */
 .risk-card {
   background: #fff;
-  padding: 28rpx 32rpx 24rpx;
-  margin-bottom: 24rpx;
-  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .risk-card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20rpx;
+  margin-bottom: 12px;
 }
 
 .risk-card-title {
   color: #333;
-  font-size: 30rpx;
+  font-size: 18px;
   font-weight: 700;
 }
 
 .risk-badge {
-  border-radius: 9999rpx;
-  padding: 6rpx 18rpx;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  background: #fff1f0;
 }
 
 .risk-badge-text {
-  font-size: 22rpx;
+  font-size: 12px;
   font-weight: 700;
+  color: #cf1322;
 }
 
 .risk-score-row {
   display: flex;
   align-items: center;
-  margin-bottom: 16rpx;
+  margin-bottom: 12px;
 }
 
 .risk-score-num {
-  font-size: 56rpx;
+  font-size: 40px;
   font-weight: 800;
   line-height: 1;
 }
 
 .risk-score-unit {
   color: #ccc;
-  font-size: 24rpx;
-  margin-top: 6rpx;
+  font-size: 14px;
+  margin-top: 4px;
 }
 
 .risk-progress {
   flex: 1;
-  height: 12rpx;
+  height: 8px;
   background: #f0f0f0;
-  border-radius: 6rpx;
+  border-radius: 4px;
   overflow: hidden;
-  margin-left: 16rpx;
+  margin-left: 12px;
 }
 
 .risk-progress-fill {
   height: 100%;
-  border-radius: 6rpx;
+  border-radius: 4px;
   transition: width 0.4s ease;
 }
 
 .risk-date {
   color: #bbb;
-  font-size: 22rpx;
+  font-size: 12px;
   display: block;
-  margin-bottom: 20rpx;
+  margin-bottom: 16px;
 }
 
 .btn-report {
-  background: linear-gradient(135deg, #07c160, #06a34e) !important;
+  background: #00B050 !important;
   border: none !important;
-  border-radius: 9999rpx !important;
+  border-radius: 9999px !important;
   color: #fff !important;
-  font-size: 26rpx !important;
+  font-size: 16px !important;
   font-weight: 600 !important;
-  padding: 18rpx 32rpx !important;
-  width: auto !important;
-  box-shadow: 0 4rpx 12rpx rgba(7,193,96,0.3);
+  padding: 12px 0 !important;
+  width: 100% !important;
+  box-shadow: 0 4px 12px rgba(0,176,80,0.3);
 }
 
 /* ===== 四宫格 ===== */
+/* 整体圆角，格子之间无缝隙，背景透过圆角 */
 .quick-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 24rpx;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 16px;
 }
 
 .quick-item {
-  padding: 32rpx 24rpx 28rpx;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   box-sizing: border-box;
-}
-
-.quick-item:nth-child(1),
-.quick-item:nth-child(2) {
   width: 50%;
 }
 
-.quick-item:nth-child(3),
-.quick-item:nth-child(4) {
-  width: 50%;
-}
-
-.quick-blue { background: linear-gradient(145deg, #eff6ff 0%, #dbeafe 100%); }
-.quick-orange { background: linear-gradient(145deg, #fff7ed 0%, #ffedd5 100%); }
-.quick-green { background: linear-gradient(145deg, #f0fdf4 0%, #dcfce7 100%); }
-.quick-purple { background: linear-gradient(145deg, #faf5ff 0%, #f3e8ff 100%); }
+.quick-blue { background: #e6f7ff; }
+.quick-orange { background: #fff7e6; }
+.quick-green { background: #f6ffed; }
+.quick-purple { background: #f9f0ff; }
 
 .quick-icon {
-  font-size: 52rpx;
+  font-size: 32px;
   display: block;
-  margin-bottom: 8rpx;
+  margin-bottom: 8px;
 }
 
 .quick-label {
-  font-size: 28rpx;
+  font-size: 15px;
   font-weight: 700;
   display: block;
   line-height: 1.2;
+  text-align: center;
+  margin-bottom: 4px;
 }
 
 .quick-sub {
   color: #888;
-  font-size: 21rpx;
+  font-size: 11px;
   display: block;
-  margin-top: 4rpx;
   line-height: 1.4;
+  text-align: center;
 }
 
 .quick-blue .quick-label { color: #1d4ed8; }
@@ -238,49 +233,50 @@
 /* ===== 通用卡片 ===== */
 .section-card {
   background: #fff;
-  padding: 28rpx;
-  margin-bottom: 24rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .section-header {
   display: flex;
   align-items: center;
-  margin-bottom: 6rpx;
+  margin-bottom: 4px;
 }
 
 .section-emoji {
-  font-size: 36rpx;
+  font-size: 18px;
   display: block;
-  margin-right: 10rpx;
+  margin-right: 8px;
 }
 
 .section-title {
   color: #222;
-  font-size: 30rpx;
+  font-size: 17px;
   font-weight: 700;
   display: block;
 }
 
 .section-sub {
   color: #999;
-  font-size: 22rpx;
+  font-size: 13px;
   display: block;
-  margin-bottom: 20rpx;
-  padding-left: 46rpx;
+  margin-bottom: 16px;
+  padding-left: 26px;
   line-height: 1.5;
 }
 
 .tag-green {
-  background: #f0fdf4;
-  border-radius: 9999rpx;
-  padding: 4rpx 14rpx;
-  margin-left: 12rpx;
+  background: #f6ffed;
+  border-radius: 9999px;
+  padding: 2px 10px;
+  margin-left: 8px;
 }
 
 .tag-green-text {
   color: #16a34a;
-  font-size: 20rpx;
+  font-size: 11px;
 }
 
 /* ===== 情景练习室 ===== */
@@ -292,8 +288,8 @@
 .practice-item {
   display: flex;
   align-items: center;
-  padding: 18rpx 0;
-  border-bottom: 1rpx solid #f0f0f0;
+  padding: 14px 0;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 .practice-item:last-child {
@@ -302,61 +298,61 @@
 }
 
 .practice-emoji {
-  font-size: 36rpx;
+  font-size: 24px;
   display: block;
-  width: 52rpx;
+  width: 40px;
   text-align: center;
   flex-shrink: 0;
-  margin-right: 16rpx;
+  margin-right: 12px;
 }
 
 .practice-text {
-  color: #444;
-  font-size: 26rpx;
+  color: #333;
+  font-size: 15px;
   display: block;
   flex: 1;
 }
 
 /* ===== 情绪日历 ===== */
-.calendar-header-row {
+.cal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20rpx;
+  margin-bottom: 16px;
 }
 
-.calendar-title {
+.cal-title {
   color: #222;
-  font-size: 30rpx;
+  font-size: 17px;
   font-weight: 700;
 }
 
-.calendar-month {
+.cal-month {
   color: #999;
-  font-size: 22rpx;
+  font-size: 13px;
 }
 
-/* 星期表头：flex，每格 1/7 宽度 */
+/* 星期表头 */
 .cal-week-row {
   display: flex;
-  margin-bottom: 8rpx;
+  margin-bottom: 8px;
 }
 
 .cal-week-cell {
   width: 14.2857%;
   text-align: center;
-  padding: 6rpx 0;
+  padding: 4px 0;
 }
 
 .cal-week-text {
   color: #bbb;
-  font-size: 20rpx;
+  font-size: 12px;
 }
 
-/* 日期网格：flex 每行 7 格 */
+/* 日期行 */
 .cal-row {
   display: flex;
-  margin-bottom: 8rpx;
+  margin-bottom: 4px;
 }
 
 .cal-cell {
@@ -365,30 +361,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 72rpx;
+  min-height: 56rpx;
 }
 
 .cal-day {
   color: #555;
-  font-size: 26rpx;
+  font-size: 14px;
   font-weight: 500;
   display: block;
   line-height: 1;
 }
 
 .cal-emotion {
-  font-size: 16rpx;
+  font-size: 10px;
   display: block;
   line-height: 1;
-  margin-top: 4rpx;
+  margin-top: 2px;
 }
 
 /* 今日圆形 */
 .cal-today {
-  background: #07c160;
+  background: #00B050;
   border-radius: 50%;
-  width: 56rpx;
-  height: 56rpx;
+  width: 36px;
+  height: 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -402,15 +398,15 @@
 
 /* 情绪统计 */
 .emotion-stats {
-  margin-top: 20rpx;
-  padding-top: 20rpx;
-  border-top: 1rpx solid #f0f0f0;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f5f5f5;
 }
 
 .emotion-stat-row {
   display: flex;
   align-items: center;
-  margin-bottom: 12rpx;
+  margin-bottom: 10px;
 }
 
 .emotion-stat-row:last-child {
@@ -418,34 +414,33 @@
 }
 
 .emotion-stat-emoji {
-  font-size: 26rpx;
+  font-size: 16px;
   display: block;
-  width: 40rpx;
+  width: 32px;
   text-align: center;
   flex-shrink: 0;
-  margin-right: 12rpx;
+  margin-right: 10px;
 }
 
 .emotion-stat-bar {
   flex: 1;
-  height: 10rpx;
+  height: 8px;
   background: #f0f0f0;
-  border-radius: 5rpx;
+  border-radius: 4px;
   overflow: hidden;
-  margin-right: 12rpx;
+  margin-right: 10px;
 }
 
 .emotion-stat-fill {
   height: 100%;
-  background: #07c160;
-  border-radius: 5rpx;
-  transition: width 0.4s ease;
+  background: #00B050;
+  border-radius: 4px;
 }
 
 .emotion-stat-count {
   color: #bbb;
-  font-size: 20rpx;
-  width: 64rpx;
+  font-size: 12px;
+  width: 40px;
   text-align: right;
   flex-shrink: 0;
 }
@@ -459,7 +454,7 @@
 .pua-row {
   display: flex;
   align-items: center;
-  margin-bottom: 14rpx;
+  margin-bottom: 12px;
 }
 
 .pua-row:last-child {
@@ -467,45 +462,44 @@
 }
 
 .pua-emoji {
-  font-size: 26rpx;
+  font-size: 14px;
   display: block;
-  width: 40rpx;
+  width: 28px;
   text-align: center;
   flex-shrink: 0;
-  margin-right: 12rpx;
+  margin-right: 8px;
 }
 
 .pua-type {
   color: #555;
-  font-size: 22rpx;
-  width: 150rpx;
+  font-size: 13px;
+  width: 100px;
   flex-shrink: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-right: 12rpx;
+  margin-right: 8px;
 }
 
 .pua-bar {
   flex: 1;
-  height: 10rpx;
+  height: 8px;
   background: #f0f0f0;
-  border-radius: 5rpx;
+  border-radius: 4px;
   overflow: hidden;
-  margin-right: 12rpx;
+  margin-right: 8px;
 }
 
 .pua-bar-fill {
   height: 100%;
-  background: #f87171;
-  border-radius: 5rpx;
-  transition: width 0.4s ease;
+  background: #ff7875;
+  border-radius: 4px;
 }
 
 .pua-count {
   color: #bbb;
-  font-size: 20rpx;
-  width: 52rpx;
+  font-size: 12px;
+  width: 36px;
   text-align: right;
   flex-shrink: 0;
 }

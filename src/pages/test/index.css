@@ -1,70 +1,70 @@
-.page {padding: 0; background: #f0f0f0; min-height: 100vh; box-sizing: border-box;}
+.page {padding: 0; background: #fff; min-height: 100vh; box-sizing: border-box;}
 
 /* ===== 测试引导页 ===== */
 .page-intro {
+  background: #fff;
   min-height: 100vh;
-  background: linear-gradient(160deg, #07c160 0%, #06a34e 100%);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
 .intro-hero {
-  padding: 80rpx 48rpx 48rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 80rpx 48rpx 64rpx;
   flex: 1;
 }
 
 .intro-mascot {
-  font-size: 120rpx;
   display: block;
+  font-size: 120rpx;
   margin-bottom: 32rpx;
-  opacity: 0.9;
+  line-height: 1;
 }
 
 .intro-title {
   display: block;
-  font-size: 48rpx;
-  font-weight: 800;
-  color: #fff;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #333;
   margin-bottom: 12rpx;
   text-align: center;
 }
 
 .intro-sub {
   display: block;
-  font-size: 28rpx;
-  color: rgba(255,255,255,.75);
-  margin-bottom: 40rpx;
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 48rpx;
   text-align: center;
 }
 
 .intro-desc {
   display: block;
-  font-size: 28rpx;
-  color: rgba(255,255,255,.85);
-  line-height: 1.7;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.8;
   text-align: center;
-  margin-bottom: 64rpx;
-  background: rgba(255,255,255,.15);
-  border-radius: 24rpx;
+  margin-bottom: 80rpx;
+  background: #f9fafb;
+  border-radius: 20rpx;
   padding: 32rpx;
   width: 100%;
   box-sizing: border-box;
 }
 
 .start-btn {
-  background: #fff !important;
-  color: #07c160 !important;
+  background: #00B050 !important;
+  color: #fff !important;
   border: none !important;
   border-radius: 9999rpx !important;
-  font-size: 32rpx !important;
-  font-weight: 700 !important;
+  font-size: 30rpx !important;
+  font-weight: 600 !important;
   padding: 28rpx 64rpx !important;
   width: auto !important;
-  box-shadow: 0 8rpx 32rpx rgba(0,0,0,.15);
+  box-shadow: 0 8rpx 32rpx rgba(0,176,80,0.25);
 }
 
 /* ===== 测试结果页 ===== */
@@ -93,9 +93,10 @@
 
 .res-score-card {
   background: #fff;
-  border-radius: 32rpx;
+  border-radius: 24rpx;
   padding: 40rpx;
   box-shadow: 0 4rpx 20rpx rgba(0,0,0,.08);
+  margin-bottom: 32rpx;
 }
 
 .res-score-row {
@@ -113,7 +114,7 @@
 .res-actions {display: flex; flex-direction: column; gap: 16rpx;}
 
 .res-btn {
-  background: #07c160 !important;
+  background: #00B050 !important;
   color: #fff !important;
   border: none !important;
   border-radius: 9999rpx !important;
@@ -138,7 +139,7 @@
 /* ===== 聊天故事页 ===== */
 .page-chat {
   min-height: 100vh;
-  background: #f0f0f0;
+  background: #f7f7f7;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -153,7 +154,7 @@
   border-bottom: 2rpx solid #eee;
   flex-shrink: 0;
 }
-.ch-title {font-size: 30rpx; font-weight: 700; color: #333;}
+.ch-title {font-size: 28rpx; font-weight: 600; color: #333;}
 .ch-sub {font-size: 24rpx; color: #aaa;}
 
 .progress-bar {
@@ -164,77 +165,51 @@
   border-bottom: 2rpx solid #f0f0f0;
   flex-shrink: 0;
 }
-.prog {
-  flex: 1;
-  height: 8rpx;
-  background: #e5e5e5;
-  border-radius: 4rpx;
-}
-.prog.done {background: #07c160;}
-.prog.active {background: #a7f3d0;}
+.prog {flex: 1; height: 6rpx; background: #e8e8e8; border-radius: 3rpx;}
+.prog.done {background: #00B050;}
+.prog.active {background: #bbf7d0;}
 
 /* ===== 消息区 ===== */
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24rpx 32rpx;
-}
+.messages {flex: 1; overflow-y: auto; padding: 24rpx 32rpx;}
 
 .context-tag {
-  background: #fffbeb;
-  border-left: 6rpx solid #f59e0b;
+  background: #fff7ed;
+  border-left: 4rpx solid #fb923c;
   border-radius: 0 12rpx 12rpx 0;
   padding: 16rpx 20rpx;
   margin-bottom: 24rpx;
 }
-.ct {display: block; font-size: 26rpx; color: #92400e; line-height: 1.5;}
+.ct {display: block; color: #92400e; font-size: 24rpx; line-height: 1.5;}
 
-.msg-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 12rpx;
-  margin-bottom: 16rpx;
-}
+.msg-row {display: flex; align-items: flex-end; gap: 12rpx; margin-bottom: 16rpx;}
 .msg-row.user {flex-direction: row-reverse;}
 
 .avatar {
-  width: 64rpx;
-  height: 64rpx;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.av-txt {font-size: 24rpx; color: #fff; font-weight: 700;}
-.av-me {background: #07c160;}
+.av-txt {color: #fff; font-size: 22rpx; font-weight: 700;}
+.av-me {background: #00B050;}
 
 .bubble {
   max-width: 70%;
-  border-radius: 24rpx;
+  border-radius: 20rpx;
   padding: 16rpx 20rpx;
-  font-size: 28rpx;
+  font-size: 26rpx;
   line-height: 1.5;
   box-sizing: border-box;
 }
-.bubble-me {
-  background: #07c160;
-  color: #fff;
-  border-bottom-right-radius: 8rpx;
-}
-.bubble-highlight {
-  background: #fef2f2;
-  color: #dc2626;
-  border-bottom-left-radius: 8rpx;
-}
-.bubble-other {
-  background: #fff;
-  color: #333;
-  border-bottom-left-radius: 8rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,.06);
-}
-.btext {display: block; font-size: 28rpx; line-height: 1.5;}
+.bubble-me {background: #00B050; color: #fff; border-bottom-right-radius: 6rpx;}
+.bubble-highlight {background: #fff1f0; color: #cf1322; border-bottom-left-radius: 6rpx;}
+.bubble-other {background: #fff; color: #333; border-bottom-left-radius: 6rpx; box-shadow: 0 2rpx 8rpx rgba(0,0,0,.06);}
+.btext {display: block; font-size: 26rpx; line-height: 1.5;}
 
+/* 小林内心独白 */
 .monologue-row {
   display: flex;
   align-items: flex-start;
@@ -242,50 +217,47 @@
   margin: 20rpx 0;
 }
 .av-mono {
-  width: 64rpx;
-  height: 64rpx;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 50%;
-  background: #ede9fe;
+  background: #f0fdf4;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24rpx;
-  color: #7c3aed;
+  font-size: 22rpx;
+  color: #15803d;
   font-weight: 700;
   flex-shrink: 0;
 }
 .bubble-mono {
-  background: #f5f3ff;
-  border-radius: 24rpx;
+  background: #f0fdf4;
+  border-radius: 20rpx;
   padding: 16rpx 20rpx;
   max-width: 70%;
   box-sizing: border-box;
 }
-.mono-label {display: block; font-size: 22rpx; color: #7c3aed; margin-bottom: 6rpx;}
-.mono-text {display: block; font-size: 26rpx; color: #6d28d9; line-height: 1.6; font-style: italic;}
+.mono-label {display: block; font-size: 22rpx; color: #15803d; margin-bottom: 6rpx;}
+.mono-text {display: block; font-size: 24rpx; color: #166534; line-height: 1.7; font-style: italic;}
 
+/* 关键一幕 */
 .quote-block {
   background: #fff;
   border-radius: 16rpx;
   padding: 20rpx 24rpx;
   margin: 16rpx 0;
-  border-left: 6rpx solid #ef4444;
-}
-.qb-label {display: block; font-size: 22rpx; color: #ef4444; margin-bottom: 6rpx;}
-.qb-text {display: block; font-size: 28rpx; color: #333; line-height: 1.5; font-style: italic;}
-
-.tags-row {display: flex; gap: 12rpx; flex-wrap: wrap; margin-top: 16rpx;}
-.htag {
-  background: #fef2f2;
-  color: #dc2626;
-  padding: 4rpx 16rpx;
-  border-radius: 9999rpx;
-  font-size: 24rpx;
+  border-left: 6rpx solid #ff4d4f;
   box-sizing: border-box;
 }
+.qb-label {display: block; font-size: 22rpx; color: #ff4d4f; margin-bottom: 6rpx;}
+.qb-text {display: block; font-size: 26rpx; color: #333; line-height: 1.5; font-style: italic;}
 
+/* 标签 */
+.tags-row {display: flex; gap: 12rpx; flex-wrap: wrap; margin-top: 16rpx;}
+.htag {background: #fff1f0; color: #cf1322; padding: 4rpx 16rpx; border-radius: 9999rpx; font-size: 22rpx; box-sizing: border-box;}
+
+/* 选中回复 */
 .selected-reply {display: flex; justify-content: flex-end; margin: 16rpx 0;}
-.bubble-me {background: #07c160; color: #fff; border-radius: 24rpx 24rpx 8rpx 24rpx;}
+.bubble-me {background: #00B050; color: #fff; border-radius: 20rpx 20rpx 6rpx 20rpx;}
 
 /* ===== 回复选项 ===== */
 .reply-bar {
@@ -311,39 +283,29 @@
 .feedback-card {
   background: #f0fdf4;
   border-radius: 20rpx;
-  padding: 20rpx 24rpx;
+  padding: 20rpx 32rpx;
   margin: 0 32rpx 20rpx;
   flex-shrink: 0;
   box-sizing: border-box;
 }
-.fc-header {display: flex; flex-direction: column; gap: 6rpx;}
+.fc-header {display: flex; flex-direction: column; gap: 4rpx;}
 .fc-badge {display: block; font-size: 28rpx; font-weight: 700; margin-bottom: 4rpx;}
 .fc-hint {display: block; font-size: 24rpx; color: #666;}
 
-/* ===== 场景选择页 ===== */
+/* ===== 场景选择页（测试页内） ===== */
 .pt {display: block; font-size: 32rpx; font-weight: 700; color: #333; margin-bottom: 8rpx;}
 .pd {display: block; font-size: 24rpx; color: #aaa; margin-bottom: 32rpx;}
 .sl {}
 
-.si {
-  background: #fff;
-  border-radius: 32rpx;
-  padding: 32rpx;
-  margin-bottom: 20rpx;
-  display: flex;
-  align-items: center;
-  gap: 24rpx;
-  box-sizing: border-box;
-}
-.sii {font-size: 64rpx; flex-shrink: 0;}
+.si {background: #fff; border-radius: 20rpx; padding: 28rpx; margin-bottom: 16rpx; display: flex; align-items: center; gap: 20rpx; box-sizing: border-box;}
+.sii {font-size: 56rpx; flex-shrink: 0;}
 .sic {flex: 1;}
-.sit {display: block; font-size: 28rpx; font-weight: 600; color: #333; margin-bottom: 8rpx;}
-.sil {display: block; font-size: 24rpx; color: #888; line-height: 1.5; margin-bottom: 8rpx;}
+.sit {display: block; font-size: 28rpx; font-weight: 600; color: #333; margin-bottom: 6rpx;}
+.sil {display: block; font-size: 24rpx; color: #888; line-height: 1.5; margin-bottom: 6rpx;}
 .sd {display: flex; gap: 4rpx;}
-.st {font-size: 24rpx; color: #ddd; margin-right: 4rpx;}
-.st:last-child {margin-right: 0;}
+.st {font-size: 22rpx; color: #ddd; margin-right: 4rpx;}
 .st.act {color: #f59e0b;}
-.sarr {font-size: 40rpx; color: #ddd; flex-shrink: 0;}
+.sarr {font-size: 36rpx; color: #ddd; flex-shrink: 0;}
 
 .chat-page {min-height: 100vh; background: #f0f0f0; display: flex; flex-direction: column;}
 .chat-hd {background: #fff; padding: 24rpx 32rpx; display: flex; justify-content: space-between; align-items: center; border-bottom: 2rpx solid #eee;}
@@ -352,14 +314,14 @@
 .msgs {flex: 1; overflow-y: auto; padding: 24rpx;}
 .mr {display: flex; margin-bottom: 20rpx;}
 .mr.ur {flex-direction: row-reverse;}
-.bub {max-width: 75%; border-radius: 32rpx; padding: 20rpx 28rpx; font-size: 28rpx; line-height: 1.5; box-sizing: border-box;}
-.bub-me {background: #07c160; color: #fff; border-bottom-right-radius: 8rpx;}
+.bub {max-width: 75%; border-radius: 20rpx; padding: 20rpx 28rpx; font-size: 28rpx; line-height: 1.5; box-sizing: border-box;}
+.bub-me {background: #00B050; color: #fff; border-bottom-right-radius: 8rpx;}
 .bub-ai {background: #fff; color: #333; border-bottom-left-radius: 8rpx; box-shadow: 0 2rpx 8rpx rgba(0,0,0,.06);}
 .bt {display: block;}
 .done-card {background: #fff; padding: 32rpx; border-top: 2rpx solid #eee;}
 .dc-badge {display: block; font-size: 30rpx; font-weight: 700; margin-bottom: 12rpx;}
 .dc-hint {display: block; font-size: 26rpx; color: #888; margin-bottom: 28rpx;}
-.dc-btn {background: #07c160; color: #fff; border: none; border-radius: 9999rpx; padding: 24rpx; font-size: 28rpx; width: 100%; box-sizing: border-box;}
+.dc-btn {background: #00B050; color: #fff; border: none; border-radius: 9999rpx; padding: 24rpx; font-size: 28rpx; width: 100%; box-sizing: border-box;}
 .inp-row {display: flex; gap: 20rpx; padding: 24rpx 32rpx; background: #fff; border-top: 2rpx solid #eee; box-sizing: border-box;}
 .inp {flex: 1; background: #f5f5f5; border-radius: 9999rpx; padding: 20rpx 32rpx; font-size: 28rpx;}
-.snd {background: #07c160; color: #fff; border: none; border-radius: 9999rpx; padding: 20rpx 36rpx; font-size: 32rpx; line-height: 1; box-sizing: border-box;}
+.snd {background: #00B050; color: #fff; border: none; border-radius: 9999rpx; padding: 20rpx 36rpx; font-size: 32rpx; line-height: 1; box-sizing: border-box;}
