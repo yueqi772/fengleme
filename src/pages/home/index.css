@@ -63,7 +63,6 @@
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
-/* Assessment Card */
 .assessment-card {
   background: #fff;
   border-radius: 16px;
@@ -131,7 +130,6 @@
 .assessment-bar-fill {
   height: 100%;
   border-radius: 4px;
-  transition: width 0.5s ease;
 }
 
 .assessment-card-empty {
@@ -167,7 +165,7 @@
 .home-btn-primary {
   background: #07c160;
   border-radius: 24px;
-  padding: 10px 24px;
+  padding: 10px 32px;
 }
 
 .home-btn-primary-text {
@@ -191,7 +189,7 @@
   font-weight: 600;
 }
 
-/* Quick Entry Grid */
+/* 四宫格彩色背景 */
 .home-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -199,14 +197,29 @@
 }
 
 .home-entry-card {
-  background: #fff;
   border-radius: 16px;
   padding: 20px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.home-entry-blue {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+}
+
+.home-entry-orange {
+  background: linear-gradient(135deg, #fff7ed, #fed7aa);
+}
+
+.home-entry-green {
+  background: linear-gradient(135deg, #f0fdf4, #bbf7d0);
+}
+
+.home-entry-purple {
+  background: linear-gradient(135deg, #faf5ff, #e9d5ff);
 }
 
 .home-entry-icon {
@@ -215,11 +228,16 @@
 
 .home-entry-label {
   font-size: 13px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #1a1a1a;
 }
 
-/* Practice Scenarios scroll */
+.home-entry-sub {
+  font-size: 11px;
+  color: #888;
+}
+
+/* Practice Scenarios */
 .home-scenario-scroll {
   white-space: nowrap;
   padding-bottom: 4px;
@@ -235,13 +253,14 @@
   padding: 16px 14px;
   margin-right: 10px;
   width: 110px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   white-space: normal;
   text-align: center;
+  vertical-align: top;
 }
 
 .home-scenario-icon {
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .home-scenario-name {
@@ -266,17 +285,18 @@
   font-size: 12px;
 }
 
-/* Calendar */
+/* 情绪日历 - 关键修复：固定高度 32px，不用 aspect-ratio */
 .calendar-header {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .calendar-weekday {
   font-size: 11px;
   color: #999;
   text-align: center;
+  padding: 2px 0;
 }
 
 .calendar-grid {
@@ -286,7 +306,7 @@
 }
 
 .calendar-cell {
-  aspect-ratio: 1;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -296,9 +316,10 @@
   width: 28px;
   height: 28px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 8px;
 }
 
 .calendar-day-today {
@@ -311,16 +332,17 @@
 }
 
 .calendar-emoji {
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1;
 }
 
 .calendar-stats {
-  margin-top: 14px;
+  margin-top: 12px;
   border-top: 1px solid #f0f0f0;
-  padding-top: 12px;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
 .calendar-stat-row {
@@ -330,14 +352,16 @@
 }
 
 .calendar-stat-emoji {
-  font-size: 16px;
+  font-size: 15px;
   width: 20px;
+  flex-shrink: 0;
 }
 
 .calendar-stat-name {
   font-size: 12px;
   color: #555;
   width: 30px;
+  flex-shrink: 0;
 }
 
 .calendar-stat-bar-bg {
@@ -359,6 +383,7 @@
   color: #999;
   width: 16px;
   text-align: right;
+  flex-shrink: 0;
 }
 
 /* PUA Type */
@@ -372,12 +397,14 @@
 .pua-type-emoji {
   font-size: 16px;
   width: 20px;
+  flex-shrink: 0;
 }
 
 .pua-type-name {
   font-size: 12px;
   color: #555;
   width: 64px;
+  flex-shrink: 0;
 }
 
 .pua-type-bar-bg {
@@ -398,6 +425,7 @@
   color: #999;
   width: 16px;
   text-align: right;
+  flex-shrink: 0;
 }
 
 .home-bottom-space {

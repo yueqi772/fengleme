@@ -121,21 +121,25 @@ export default function HomePage() {
       {/* Quick Entries */}
       <View className="home-section">
         <View className="home-grid-2">
-          <View className="home-entry-card" onClick={() => Taro.navigateTo({ url: '/pages/test/index' })}>
-            <Text className="home-entry-icon">🔍</Text>
+          <View className="home-entry-card home-entry-blue" onClick={() => Taro.navigateTo({ url: '/pages/test/index' })}>
+            <Text className="home-entry-icon">📖</Text>
             <Text className="home-entry-label">识别测试</Text>
+            <Text className="home-entry-sub">了解PUA套路</Text>
           </View>
-          <View className="home-entry-card" onClick={() => Taro.switchTab({ url: '/pages/tools/index' })}>
+          <View className="home-entry-card home-entry-orange" onClick={() => Taro.switchTab({ url: '/pages/tools/index' })}>
             <Text className="home-entry-icon">🎭</Text>
             <Text className="home-entry-label">情景练习室</Text>
+            <Text className="home-entry-sub">AI模拟真实对线</Text>
           </View>
-          <View className="home-entry-card" onClick={() => Taro.switchTab({ url: '/pages/treehole/index' })}>
+          <View className="home-entry-card home-entry-green" onClick={() => Taro.switchTab({ url: '/pages/treehole/index' })}>
             <Text className="home-entry-icon">📝</Text>
             <Text className="home-entry-label">写日记</Text>
+            <Text className="home-entry-sub">记录职场点滴</Text>
           </View>
-          <View className="home-entry-card" onClick={() => Taro.switchTab({ url: '/pages/community/index' })}>
+          <View className="home-entry-card home-entry-purple" onClick={() => Taro.switchTab({ url: '/pages/community/index' })}>
             <Text className="home-entry-icon">💬</Text>
             <Text className="home-entry-label">互助社区</Text>
+            <Text className="home-entry-sub">找到同路人</Text>
           </View>
         </View>
       </View>
