@@ -468,10 +468,13 @@ export default function TestPage() {
   // ── STORY ──
   if (!question) return null;
   const level = selectedReply ? getFeedbackLevel(selectedReply.reactionMood) : 'neutral';
-  const feedbackCfg: Record<FeedbackLevel, { border: string; label: string; btnBg: string }> = {
-    good: { border: '#86efac', label: '✓ 较好的回应', btnBg: '#22c55e' },
-    neutral: { border: '#fde68a', label: '○ 一般的回应', btnBg: '#f59e0b' },
-    bad: { border: '#fecdd3', label: '✗ 艰难的回应', btnBg: '#e11d48' },
+  const feedbackCfg: Record<FeedbackLevel, {
+    border: string; label: string; btnBg: string;
+    sheetBg: string; topBg: string; emoji: string;
+  }> = {
+    good: { border: '#86efac', label: '✓ 较好的回应', btnBg: '#22c55e', sheetBg: '#f0fdf4', topBg: '#dcfce7', emoji: '🌟' },
+    neutral: { border: '#fde68a', label: '○ 一般的回应', btnBg: '#f59e0b', sheetBg: '#fffbeb', topBg: '#fef3c7', emoji: '💭' },
+    bad: { border: '#fecdd3', label: '✗ 艰难的回应', btnBg: '#e11d48', sheetBg: '#fff1f2', topBg: '#ffe4e6', emoji: '💔' },
   };
   const cfg = feedbackCfg[level];
 
@@ -619,12 +622,18 @@ export default function TestPage() {
       {showFeedback && selectedReply && (
         <View className="test-feedback-overlay">
           <View className="test-feedback-mask" onClick={() => {}} />
-          <View className="test-feedback-sheet" style={{ borderColor: cfg.border }}>
-            <View className="test-feedback-top">
-              <View className="test-feedback-badge" style={{ background: cfg.btnBg }}>
-                <Text className="test-feedback-badge-text">{cfg.label}</Text>
+          <View className="test-feedback-sheet" style={{ borderColor: cfg.border, background: cfg.sheetBg }}>
+            {/* 顶部色条 */}
+            <View className="test-feedback-top-bar" style={{ background: cfg.topBg }}>
+              <View style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 16px' }}>
+                <Text style={{ fontSize: 28 }}>{cfg.emoji}</Text>
+                <View style={{ flex: 1 }}>
+                  <View className="test-feedback-badge" style={{ background: cfg.btnBg }}>
+                    <Text className="test-feedback-badge-text">{cfg.label}</Text>
+                  </View>
+                  <Text className="test-feedback-mood">{getMoodLabel(selectedReply.reactionMood)}</Text>
+                </View>
               </View>
-              <Text className="test-feedback-mood">{getMoodLabel(selectedReply.reactionMood)}</Text>
             </View>
             <View className="test-feedback-reply-row">
               <View className="test-feedback-me-avatar">
