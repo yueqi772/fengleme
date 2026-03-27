@@ -175,38 +175,58 @@ export default function HomePage() {
             <Text className="calendar-month">{currentMonth}</Text>
           </View>
 
-          {/* 星期表头 */}
-          <View className="calendar-weekdays">
+          {/* 星期表头：固定一行 7 格 */}
+          <View className="cal-week-row">
             {['一', '二', '三', '四', '五', '六', '日'].map(d => (
-              <View key={d} className="calendar-weekday">
-                <Text className="calendar-weekday-text">{d}</Text>
+              <View key={d} className="cal-week-cell">
+                <Text className="cal-week-text">{d}</Text>
               </View>
             ))}
           </View>
 
-          {/* 日期网格：每行7天，flex布局 */}
-          <View className="calendar-grid">
-            {/* 空白填充格 */}
-            {Array.from({ length: firstDay }, (_, i) => (
-              <View key={`empty-${i}`} className="calendar-empty-cell" />
-            ))}
-            {/* 日期格 */}
-            {Array.from({ length: daysInMonth }, (_, i) => {
-              const day = i + 1;
-              const dateStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-              const emotion = emotionCalendar[dateStr];
-              const isToday = day === today.getDate();
-              return (
-                <View
-                  key={day}
-                  className={`calendar-cell ${isToday ? 'calendar-today' : 'calendar-normal'}`}
-                >
-                  <Text className="calendar-day">{day}</Text>
-                  {emotion && <Text className="calendar-emotion">{EMOTION_MAP[emotion]}</Text>}
-                </View>
-              );
-            })}
-          </View>
+          {/* 日期网格：每行 7 格 */}
+          {(() => {
+            // 构建日历数据：前补空白，后凑满整行
+            const cells: Array<{ day: number | null; dateStr: string | null }> = [];
+            // 前补空白
+            for (let i = 0; i < firstDay; i++) {
+              cells.push({ day: null, dateStr: null });
+            }
+            // 日期
+            for (let d = 1; d <= daysInMonth; d++) {
+              const dateStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+              cells.push({ day: d, dateStr });
+            }
+            // 后面补 null 凑满整行（7的倍数）
+            while (cells.length % 7 !== 0) {
+              cells.push({ day: null, dateStr: null });
+            }
+            // 分成行
+            const rows: Array<Array<{ day: number | null; dateStr: string | null }>> = [];
+            for (let i = 0; i < cells.length; i += 7) {
+              rows.push(cells.slice(i, i + 7));
+            }
+            return rows.map((row, ri) => (
+              <View key={ri} className="cal-row">
+                {row.map((cell, ci) => {
+                  if (cell.day === null) {
+                    return <View key={`empty-${ci}`} className="cal-cell" />;
+                  }
+                  const emotion = cell.dateStr ? emotionCalendar[cell.dateStr] : null;
+                  const isToday = cell.day === today.getDate();
+                  return (
+                    <View
+                      key={cell.day}
+                      className={`cal-cell ${isToday ? 'cal-today' : ''}`}
+                    >
+                      <Text className="cal-day">{cell.day}</Text>
+                      {emotion && <Text className="cal-emotion">{EMOTION_MAP[emotion]}</Text>}
+                    </View>
+                  );
+                })}
+              </View>
+            ));
+          })()}
 
           {/* 情绪统计 */}
           {emotionStats.some(e => e.count > 0) && (
